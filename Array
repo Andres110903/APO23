@@ -1,0 +1,41 @@
+//en este trabajo se pide al usuario que ingrese el numero de alumnos y la respectiva nota de cada uno
+//se calcula la media de la nota de la clase, y con eso se retorna al alumno con la nota más alta de la clase
+//la media se calcula como un parametro para poder retornar la nota más alta y al alumno a quien corrresponde
+//AP023
+
+import java.util.Scanner;
+public class Array {
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        int numAlumn, i;
+        double sum = 0, media;
+
+        do {
+            System.out.print("Número de alumnos de la clase: ");
+            numAlumn = sc.nextInt();
+        } while (numAlumn <= 0);
+
+        double[] notas = new double[numAlumn]; 
+        
+        for (i = 0; i < notas.length; i++) {
+            System.out.print("Alumno " + (i + 1) + " Nota final: ");
+            notas[i] = sc.nextDouble();
+        }
+
+        for (i = 0; i < notas.length; i++) {
+            sum = sum + notas[i];
+        }
+
+        media = sum / notas.length;
+
+        System.out.printf("Nota media del curso: %.2f %n", media);
+
+        System.out.println("Listado de notas superiores a la media: ");
+        for (i = 0; i < notas.length; i++) {
+            if (notas[i] > media) {
+                System.out.println("Alumno numero " + (i + 1)+ " Nota final: " + notas[i]);
+            }
+        }
+    }
+}
